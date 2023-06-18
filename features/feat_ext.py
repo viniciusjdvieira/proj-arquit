@@ -7,7 +7,7 @@ from praat_class import Sinal
 # extrator de features
 ##----------------------------------------------------
 
-## LPCS
+## LPCs
 def get_lpc(signal, order = 12, sr = 25000,
              frame_length = 512, hop_length = 256):
     '''
@@ -74,7 +74,7 @@ def get_delta_mfcc(signal, sr = 25000, order = 12,
 ## delta-delta-MFCCs
 def get_delta_delta_mfcc(signal, sr = 25000, order = 12, frame_length = 512, hop_length = 256):
     ''' 
-    função para calcular delta-MFCCs
+    função para calcular delta-delta-MFCCs
     
     '''
     coeffs = librosa.feature.mfcc(signal, n_mfcc = order, 

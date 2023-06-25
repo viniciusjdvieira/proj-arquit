@@ -16,6 +16,11 @@ class Sinal:
         self.sndG = pcm2float(self.signal)
         # sndPraat é o float32 no formato da biblioteca do Praat
         self.sndPraat = parselmouth.Sound(self.sndG)
+        #if len(np.shape(self.sndPraat)) > 1:
+        #    if np.shape(self.sndPraat)[0] > np.shape(self.sndPraat)[1]:
+        #        self.sndPraat = np.mean(self.sndPraat, axis=1)
+        #    else:
+        #        self.sndPraat = np.mean(self.sndPraat, axis=0)
 
     def pitch(self):
         self.pitchPraat = call(self.sndPraat, "To Pitch", 0.0, 75, 600)

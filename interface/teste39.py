@@ -36,14 +36,14 @@ class TelaInicial(QWidget):
     def initUI(self):
         logo_label = QLabel(self)
         logo_pixmap = QPixmap("LogotipoIF.png")
-        logo_pixmap = logo_pixmap.scaledToWidth(300, Qt.SmoothTransformation)  # Ajuste de tamanho
+        logo_pixmap = logo_pixmap.scaledToWidth(250, Qt.SmoothTransformation)  # Ajuste de tamanho
         logo_label.setPixmap(logo_pixmap)
         logo_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
 
         nome_software_label = QLabel("SASVP (v1.0.00)", self)
         nome_software_label.setStyleSheet("font-size: 18px; font-weight: bold;")
 
-        texto_boas_vindas = QLabel("Olá, Professor!\nO SASVP (Sistema de Acompanhamento da Saúde Vocal de Professores) é\num projeto voltado aos cuidados da sua voz. Você só precisar gravar sua voz aqui.\nNós cuidaremos de tudo, inclusive da sua saúde vocal ;) \nJá bebeu água hoje? :)", self)
+        texto_boas_vindas = QLabel("Olá, Professor!\nO SASVP (Sistema de Acompanhamento da Saúde Vocal de Professores) é\num projeto voltado aos cuidados da sua voz. Você só precisa gravar sua voz aqui.\nNós cuidaremos de tudo, inclusive da sua saúde vocal ;) \nJá bebeu água hoje? :)", self)
         texto_boas_vindas.setStyleSheet("font-size: 14px;")
 
         matricula_label = QLabel("Número de Matrícula:", self)
@@ -127,6 +127,14 @@ class JanelaTerceiraTela(QDialog):
         self.init_ui()
         
     def init_ui(self):
+
+        logo_label = QLabel(self)
+        logo_pixmap = QPixmap("mic.png")
+        logo_pixmap = logo_pixmap.scaledToWidth(150, Qt.SmoothTransformation)  # Ajuste de tamanho
+        logo_label.setPixmap(logo_pixmap)
+        logo_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        self.layout.addWidget(logo_label)
+
         # Mensagem de instruções
         mensagem_label = QLabel("Agora vamos gravar sua voz. \nClique no botão abaixo para começar a gravar. \nA gravação dura 5 segundos. \nVocê pode ouvir o áudio e gravar novamente.", self)
         mensagem_label.setStyleSheet("font-size: 14px; font-weight: bold;")
@@ -151,6 +159,7 @@ class JanelaTerceiraTela(QDialog):
         voltar_button = QPushButton("Voltar", self)
         voltar_button.clicked.connect(self.voltar_tela_2)
 
+        
         self.layout.addWidget(gravar_button)
         self.layout.addWidget(ouvir_button)
         self.layout.addWidget(pausar_button)

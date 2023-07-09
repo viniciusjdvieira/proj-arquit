@@ -198,11 +198,6 @@ class JanelaAvaliacaoPaciente(QDialog):
         if index > 0:
             paciente_selecionado = self.paciente_combo_box.currentText()
             msg_box = QMessageBox()
-            #msg_box.setWindowTitle("Paciente selecionado")
-            #msg_box.setText(f"Paciente selecionado: {paciente_selecionado}")
-            #msg_box.setIcon(QMessageBox.Information)
-            #msg_box.setWindowIcon(QIcon("LogotipoIF.png"))  # Substitua o caminho pelo seu ícone .png
-            #msg_box.exec_()
             QMessageBox.information(self, "Paciente selecionado", f"Paciente selecionado: {paciente_selecionado}")
             msg_box.setWindowIcon(QIcon("LogotipoIF.png"))
 
@@ -367,8 +362,7 @@ class JanelaAvaliacaoDepartamento(QDialog):
         escolher_departamento_label = QLabel("Selecione o departamento:", self)
         self.departamento_combo_box = QComboBox(self)
         self.departamento_combo_box.addItems(["Engenharia Elétrica", "Engenharia Mecânica", "Engenharia Civil"])
-        #QMessageBox.information(self, "Departamento selecionado", f"Departamento selecionado: {departamento_selecionado}")
-
+        
         avancar_button = QPushButton("Avançar", self)
         avancar_button.clicked.connect(self.avancar)
 

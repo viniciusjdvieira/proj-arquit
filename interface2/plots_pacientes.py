@@ -97,10 +97,7 @@ def tab_dados_recentes(paciente, matricula):
     df_v2 = df_v.query("data==('16/07/2023')")
     dft = pd.concat([df_v2, df1])
 
-    #df_tab = dft.groupby('classe_formal')['cpps', 'slope', 'lpc1', 'lpc2',
-    #                                        'lpc3', 'lpc4', 'lpc5', 'lpc6', 'lpc7',
-    #                                        'lpc8', 'lpc9', 'lpc10', 'lpc11', 'lpc12'].mean()
-
+    
     df_tab = dft.groupby('classe_formal')[['cpps', 'slope', 'lpc1', 'lpc2',
                                        'lpc3', 'lpc4', 'lpc5', 'lpc6', 'lpc7',
                                        'lpc8', 'lpc9', 'lpc10', 'lpc11', 'lpc12']].mean()
@@ -110,42 +107,6 @@ def tab_dados_recentes(paciente, matricula):
 
     return df_tab
 
-
-#def gerar_tabela_valores_medios(df_tab):
-#    tabela = QTableWidget()
-#    tabela.setColumnCount(2)
-#    tabela.setHorizontalHeaderLabels(["Métrica", "Valor Médio"])#
-
-#    for i, (metrica, valor_medio) in enumerate(df_tab.iterrows()):
-#        tabela.insertRow(i)
-#        tabela.setItem(i, 0, QTableWidgetItem(metrica))
-#        tabela.setItem(i, 1, QTableWidgetItem(str(valor_medio[0])))
-
-#    tabela.resizeColumnsToContents()
-#    return tabela
-
-#def gerar_tabela_valores_medios(df_tab):
-#    tabela = QTableWidget()
-#    tabela.setColumnCount(len(df_tab.columns))
-#    tabela.setRowCount(len(df_tab))
-
-#    # Definir os cabeçalhos das colunas
-#    colunas = df_tab.columns.tolist()
-#    tabela.setHorizontalHeaderLabels(colunas)
-
-#    # Preencher a tabela com os valores médios
-#    for i, (tag, valores) in enumerate(df_tab.iterrows()):
-#        for j, valor in enumerate(valores):
-#            item = QTableWidgetItem(str(valor))
-#            tabela.setItem(i, j, item)
-        
-#        # Definir a tag como o rótulo da linha
-#        tabela.setVerticalHeaderItem(i, QTableWidgetItem(tag))
-
-#    # Ajustar o tamanho das colunas para que elas se ajustem ao conteúdo
-#    tabela.resizeColumnsToContents()
-
-#    return tabela
 
 def gerar_tabela_valores_medios2(df_tab):
     tabela = QTableWidget()
@@ -354,10 +315,7 @@ def tab_dados_historicos(paciente, matricula):
     df_v2 = df_v
     dft = pd.concat([df_v2, df1])
 
-    #df_tab = dft.groupby('classe_formal')['cpps', 'slope', 'lpc1', 'lpc2',
-    #                                        'lpc3', 'lpc4', 'lpc5', 'lpc6', 'lpc7',
-    #                                        'lpc8', 'lpc9', 'lpc10', 'lpc11', 'lpc12'].mean()
-
+    
     df_tab = dft.groupby('classe_formal')[['cpps', 'slope', 'lpc1', 'lpc2',
                                        'lpc3', 'lpc4', 'lpc5', 'lpc6', 'lpc7',
                                        'lpc8', 'lpc9', 'lpc10', 'lpc11', 'lpc12']].mean()

@@ -1,24 +1,19 @@
 import sys
+import glob
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QComboBox, QLineEdit, QPushButton, QVBoxLayout, QDialog, QMessageBox
+from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import Qt, QUrl
-from PyQt5.QtWidgets import QFileDialog
-import pandas_util
-import audio_util
-from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QAudioRecorder, QAudioEncoderSettings, QAudioDeviceInfo
-from PyQt5.QtMultimediaWidgets import QVideoWidget
-import numpy as np
-import soundfile as sf
-import sounddevice as sd
-import datetime
-import matplotlib.pyplot as plt
-import plot_utils
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-import glob
-import pandas as pd
-from matplotlib.figure import Figure
-from plots_pacientes import dados_recentes, tab_dados_recentes, gerar_tabela_valores_medios, dados_historicos, tab_dados_historicos, dados_todos, tab_dados_todos, dados_depto, tab_dados_depto
 
+# módulos desenvolvidos para este projeto
+from plots_pacientes import dados_recentes, tab_dados_recentes, gerar_tabela_valores_medios, dados_historicos, tab_dados_historicos, dados_todos, tab_dados_todos, dados_depto, tab_dados_depto
+import pandas_util
 
 class TelaInicial(QWidget):
     def __init__(self):
@@ -78,7 +73,7 @@ class JanelaAcessoPermitido(QDialog):
         self.initUI()
 
     def initUI(self):
-        texto_acesso_permitido = QLabel("Olá, " + self.nome_pessoa + ", vamos avaliar um paciente?", self)
+        texto_acesso_permitido = QLabel("Olá, " + self.nome_pessoa + ", \nvamos avaliar um paciente?", self)
         texto_acesso_permitido.setStyleSheet("font-size: 18px; font-weight: bold;")
 
         avaliar_paciente_button = QPushButton("Avaliar Paciente", self)

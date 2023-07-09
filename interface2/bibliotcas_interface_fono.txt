@@ -1,4 +1,4 @@
-bibliotcas:
+ibliotcas:
 
 sys
 os
